@@ -1,19 +1,12 @@
 import React, { Component } from "react";
 import MessageList from "./MessageList";
+import SendMessageForm from "./SendMessageForm";
 import Chatkit from "@pusher/chatkit-client";
-import logo from "./logo.svg";
 import "./App.css";
 
-const DUMMY_DATA = [
-  {
-    senderId: "Lorenz",
-    text: "What it is"
-  },
-  {
-    senderId: "Jane",
-    text: "ay"
-  }
-];
+function Title() {
+  return <p className="title">My Chat App</p>;
+}
 
 const instanceLocator = "v1:us1:c2fb506e-2001-45b6-a3aa-66269ed46067";
 const testToken =
@@ -27,6 +20,7 @@ class App extends Component {
     this.state = {
       messages: []
     };
+    this.sendMessage = this.sendMessage.bind(this);
   }
 
   componentDidMount() {
@@ -58,15 +52,16 @@ class App extends Component {
       roomId: roomId
     });
   }
+
   render() {
     return (
       <div className="app">
-        {/* <Title title={"ChatRoom"} /> */}
+        <Title />
         <MessageList
           roomId={this.state.roomId}
           messages={this.state.messages}
         />
-        {/* <SendMessageForm /> */}
+        <SendMessageForm sendMessage={this.sendMessage} />
       </div>
     );
   }

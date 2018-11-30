@@ -4,11 +4,11 @@ class MessageList extends Component {
   render() {
     return (
       <ul className="message-list">
-        {this.props.messages.map((message, index) => {
+        {this.props.messages.map(message => {
           return (
-            <li key={message.id}>
+            <li key={message.id} className="message">
               <div>{message.senderId}</div>
-              <span className="message-text">{message.text}</span>
+              <div>{message.text}</div>
             </li>
           );
         })}
