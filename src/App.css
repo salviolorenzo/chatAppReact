@@ -1,0 +1,13 @@
+.App {
+  text-align: center;
+}
+
+.message-list {
+  outline: 1px solid black;
+}
+
+.message-text {
+  background-color: rgb(116, 186, 248);
+  padding: 0 3px;
+  border-radius: 5px;
+}
